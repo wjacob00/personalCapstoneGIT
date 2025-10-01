@@ -3,8 +3,9 @@ import yaml
 config = {
         'version': '3',
         'services': {
-                'web': {
-                        'image': 'php:8-apache',
+                'apachephp': {
+                        'image': 'apachephp:latest',
+                        'volumes': ['../../static/:/var/www/html'],
                         'ports': ['80:80']
                 }
         }
