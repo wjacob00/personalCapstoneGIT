@@ -1,15 +1,7 @@
-import yaml
+import subprocess
 
-config = {
-        'version': '3',
-        'services': {
-                'web': {
-                        'image': 'php:8-apache',
-                        'ports': ['80:80']
-                }
-        }
+subprocess.run(["docker", "build", "-t", "php:8-apache", "."], check=True)
+subprocess.run(["docker", "run", "--rm", "php:8-apache"], check=True)
 
-}
-
-with open('docker-compose.yml','w') as f:
-        yaml.dump(config, f)
+#Can inject files or run commands inside containers here subprocess.run(["docker", "exec", "-it", "my-container", "bash"], check=True)
+subprocess.run(["docker", "compose", "up", "-d"], check=True)
