@@ -1,0 +1,10 @@
+services:
+  apachephp:
+    environment:
+      APACHE_IP: 127.0.0.1
+    image: apachephp:latest
+    ports:
+    - 3306:80
+    volumes:
+    - ../../static/:/var/www/html
+version: '3'
